@@ -4,14 +4,14 @@ pipeline {
     environment {
         CONTAINER_NAME = "nestjs-app"
         IMAGE_NAME = "nesths-image"
-        EMAIL = "techzeen10@gmail.com"
+        EMAIL = "mahtisham@gmail.com"
         PORT = "3000"
     }
 
     stages {
         stage('Clone Repo'){
             steps{
-                git branch: 'main', url: 'https://github.com/farzeen-ali/CI-CD-Pipeline-Using-Jenkins-GitHub-Webhook-Ubuntu-AWS-EC2-Docker.git'
+                git branch: 'main', url: 'https://github.com/Shami-12/jenkins-automation-with-email-msg.git'
             }
         }
 
@@ -39,7 +39,7 @@ pipeline {
             steps {
                emailext(
                 subject: "NestJS App Deployed Successfully on EC2!",
-                body: "Your Nest JS app is Deployed! http://13.62.46.106:${PORT}/",
+                body: "Your Nest JS app is Deployed!",
                 to: "${EMAIL}"
                )
             }
